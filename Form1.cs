@@ -19,6 +19,7 @@ namespace MovieRentals
             int nBottomRect,   // y-coordinate of lower-right corner
             int nWidthEllipse, // height of ellipse
             int nHeightEllipse // width of ellipse
+            
         );
 
         private int customerIndex = 0, moviesIndex = 0, rentalIndex = 0, selectedCustomedID, selectedMovieID, selectedRentalID, selectedTab, selectedMovieCount, rentalPeriod;
@@ -29,7 +30,7 @@ namespace MovieRentals
         // CAUTION: Do Not use Microsoft MySql Server or there is a chance for the program to break
         // @param: host = ServerName  database = Database Name  Username = username of your server   Password = password of your server
         private string host = "DESKTOP-HMKG4TD\\SQLEXPRESS", database = "movie_rentals";
-
+        //@"Data Source=DESKTOP-HMKG4TD\SQLEXPRESS;Database=movie_rentals;Integrated Security=SSPI"
         public Form1()
         {
             InitializeComponent();
@@ -52,10 +53,12 @@ namespace MovieRentals
             UpdateIndex();
         }
 
-        private string HostConfigurations()
+        public string HostConfigurations()
         {
             // Host Configurations 
-            return "Server=" + host + ";Database=" + database + "; Integrated Security=SSPI;";
+            return @"Server=DESKTOP-HMKG4TD\SQLEXPRESS;Database=movie_rentals;Integrated Security=SSPI";
+
+            //"Server=" + host + ";Database=" + database + ";Integrated Security=SSPI;";
         }
 
         public int PriceCalculation(int days, int rentalPrice)
